@@ -16,7 +16,7 @@ public class AuthController {
 
     private final UserService userService;
 
-    @PostMapping("/auth/signup")
+    @PostMapping("/api/auth/signup")
     public SignUpResDto signUp(SignUpReqDto signUpReqDto) {
         return userService.createUser(signUpReqDto);
     }
