@@ -1,4 +1,4 @@
-package project.localbee.domain.option;
+package project.localbee.domain.option.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

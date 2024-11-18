@@ -1,4 +1,4 @@
-package project.localbee.domain.image;
+package project.localbee.domain.image.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

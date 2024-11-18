@@ -1,4 +1,4 @@
-package project.localbee.domain.Like;
+package project.localbee.domain.Like.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

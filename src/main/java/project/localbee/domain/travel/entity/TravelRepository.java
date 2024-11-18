@@ -1,4 +1,4 @@
-package project.localbee.domain.travel;
+package project.localbee.domain.travel.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

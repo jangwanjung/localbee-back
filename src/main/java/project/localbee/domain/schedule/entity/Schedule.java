@@ -1,4 +1,4 @@
-package project.localbee.domain.user;
+package project.localbee.domain.schedule.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,35 +6,26 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import project.localbee.domain.travel.entity.Travel;
+
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@NoArgsConstructor
 @Data
-public class User {
+@Builder
+public class Schedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
+    private String content;
 
-    private String password;
-
-    private String phone_number;
-
-    private String email;
-
-    private String profile_image;
-
-    @Enumerated(EnumType.STRING)
-    private RoleType role;
-
-    @Enumerated(EnumType.STRING)
-    private GenderType gender;
+    @ManyToOne
+    @JoinColumn(name = "travel_id")
+    private Travel travel;
 
     @CreationTimestamp
     private Timestamp created_at;

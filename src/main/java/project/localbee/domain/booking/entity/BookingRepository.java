@@ -1,4 +1,4 @@
-package project.localbee.domain.booking;
+package project.localbee.domain.booking.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

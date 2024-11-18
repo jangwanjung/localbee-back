@@ -1,4 +1,4 @@
-package project.localbee.domain.noti;
+package project.localbee.domain.noti.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

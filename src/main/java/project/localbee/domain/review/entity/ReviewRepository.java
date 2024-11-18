@@ -1,4 +1,4 @@
-package project.localbee.domain.review;
+package project.localbee.domain.review.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

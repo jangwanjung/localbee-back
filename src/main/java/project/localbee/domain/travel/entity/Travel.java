@@ -1,4 +1,4 @@
-package project.localbee.domain.travel;
+package project.localbee.domain.travel.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -7,9 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import project.localbee.domain.review.Review;
-import project.localbee.domain.image.Image;
-import project.localbee.domain.schedule.Schedule;
+import project.localbee.domain.review.entity.Review;
+import project.localbee.domain.image.entity.Image;
+import project.localbee.domain.schedule.entity.Schedule;
 
 import java.sql.Timestamp;
 import java.util.List;

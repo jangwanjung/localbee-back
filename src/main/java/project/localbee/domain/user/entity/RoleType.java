@@ -1,4 +1,4 @@
-package project.localbee.domain.user;
+package project.localbee.domain.user.entity;
 
 
 public enum RoleType {

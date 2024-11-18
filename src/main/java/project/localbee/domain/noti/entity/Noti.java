@@ -1,4 +1,4 @@
-package project.localbee.domain.option;
+package project.localbee.domain.noti.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,28 +6,33 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import project.localbee.domain.booking.Booking;
+import project.localbee.domain.user.entity.User;
 
 import java.sql.Timestamp;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Data
-public class Option {
+@Builder
+public class Noti {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "booking_id")
-    private Booking booking;
+    @JoinColumn(name = "from_user_id")
+    private User fromUser;
+
+    @ManyToOne
+    @JoinColumn(name = "to_user_id")
+    private User toUser;
 
     @Enumerated(EnumType.STRING)
-    private OptionType type;
+    private NotiType type;
 
     @CreationTimestamp
     private Timestamp created_at;
+
 }

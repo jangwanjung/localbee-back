@@ -1,4 +1,4 @@
-package project.localbee.domain.schedule;
+package project.localbee.domain.Like.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,26 +6,29 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import project.localbee.domain.travel.Travel;
+import project.localbee.domain.review.entity.Review;
+import project.localbee.domain.user.entity.User;
 
 import java.sql.Timestamp;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
-public class Schedule {
+public class Like {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String content;
+    @ManyToOne
+    @JoinColumn(name = "review_id")
+    private Review review;
 
     @ManyToOne
-    @JoinColumn(name = "travel_id")
-    private Travel travel;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @CreationTimestamp
     private Timestamp created_at;

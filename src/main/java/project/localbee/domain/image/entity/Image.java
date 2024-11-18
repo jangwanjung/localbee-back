@@ -1,4 +1,4 @@
-package project.localbee.domain.Like;
+package project.localbee.domain.image.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import project.localbee.domain.review.Review;
-import project.localbee.domain.user.User;
+import project.localbee.domain.travel.entity.Travel;
 
 import java.sql.Timestamp;
 
@@ -16,20 +15,20 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Data
 @Builder
-public class Like {
+public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "review_id")
-    private Review review;
+    @JoinColumn(name = "travel_id")
+    private Travel travel;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    private String image_url;
 
     @CreationTimestamp
     private Timestamp created_at;
+
+
 }

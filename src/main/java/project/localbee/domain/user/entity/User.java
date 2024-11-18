@@ -1,4 +1,4 @@
-package project.localbee.domain.noti;
+package project.localbee.domain.user.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,34 +6,36 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import project.localbee.domain.user.GenderType;
-import project.localbee.domain.user.User;
 
 import java.sql.Timestamp;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Builder
-public class Noti {
+@Data
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "from_user_id")
-    private User fromUser;
+    private String username;
 
-    @ManyToOne
-    @JoinColumn(name = "to_user_id")
-    private User toUser;
+    private String password;
+
+    private String phone_number;
+
+    private String email;
+
+    private String profile_image;
 
     @Enumerated(EnumType.STRING)
-    private NotiType type;
+    private RoleType role;
+
+    @Enumerated(EnumType.STRING)
+    private GenderType gender;
 
     @CreationTimestamp
     private Timestamp created_at;
-
 }
