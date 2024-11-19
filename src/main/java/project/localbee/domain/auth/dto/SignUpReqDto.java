@@ -13,12 +13,12 @@ import project.localbee.domain.user.entity.User;
 @Builder
 public class SignUpReqDto {
 
-    private String username;
+    private String email;
     private String password;
     public User toEntity(){
 
         return User.builder()
-                .username(username)
+                .email(email)
                 .password(password)
                 .role(RoleType.ADMIN)
                 .build();

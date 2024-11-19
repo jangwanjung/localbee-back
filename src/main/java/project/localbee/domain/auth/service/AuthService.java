@@ -17,14 +17,16 @@ public class AuthService {
     private final UserRepository userRepository;
 
     public SignUpResDto createUser(SignUpReqDto signUpReqDto) {
+
         String encPassword = bCryptPasswordEncoder.encode(signUpReqDto.getPassword());
         signUpReqDto.setPassword(encPassword);
         userRepository.save(signUpReqDto.toEntity());
+        System.out.println(signUpReqDto);
         return new SignUpResDto(200,"회원가입 완료");
     }
 
     public CheckResDto checkUser(CheckReqDto checkReqDto) {
-        boolean isUserExists = userRepository.findByUsername(checkReqDto.getUsername()).isPresent();
+        boolean isUserExists = userRepository.findByUsername(checkReqDto.getEmail()).isPresent();
         if (isUserExists) {
             return new CheckResDto(200,"중복 있음");
         }

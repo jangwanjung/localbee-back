@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class CheckReqDto {
-    private String username;
+    private String email;
 
 }

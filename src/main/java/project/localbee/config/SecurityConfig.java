@@ -34,7 +34,7 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/**","/auth/loginForm").permitAll()
+                        .requestMatchers("/api/**","/auth/loginForm","/auth/login").permitAll()
                         .requestMatchers("/user").authenticated() // 인증된 사용자만 접근 가능
                         .requestMatchers("/admin").hasRole("ADMIN") // ROLE_ADMIN 권한 필요
                         .anyRequest().permitAll()
@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .formLogin(formLogin -> formLogin
                         .loginPage("/auth/loginForm")
                         .loginProcessingUrl("/auth/login") // 로그인 처리 URL
+                        .usernameParameter("email")
                         .failureHandler(new AuthenticationFailureHandler() {
                             @Override
                             public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
