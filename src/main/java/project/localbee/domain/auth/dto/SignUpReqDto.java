@@ -15,11 +15,16 @@ public class SignUpReqDto {
 
     private String email;
     private String password;
+    private String username;
+    private String profileImage;
+
     public User toEntity(){
 
         return User.builder()
                 .email(email)
                 .password(password)
+                .username(username)
+                .profile_image("default")
                 .role(RoleType.ADMIN)
                 .build();
     }
