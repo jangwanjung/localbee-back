@@ -12,13 +12,5 @@ import project.localbee.domain.user.entity.UserRepository;
 @Service
 public class UserService {
 
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final UserRepository userRepository;
 
-    public SignUpResDto createUser(SignUpReqDto signUpReqDto) {
-        String encPassword = bCryptPasswordEncoder.encode(signUpReqDto.getPassword());
-        signUpReqDto.setPassword(encPassword);
-        userRepository.save(signUpReqDto.toEntity());
-        return new SignUpResDto(200,"회원가입 완료");
-    }
 }
