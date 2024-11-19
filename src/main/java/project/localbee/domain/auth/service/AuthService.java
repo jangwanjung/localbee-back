@@ -17,7 +17,10 @@ public class AuthService {
     private final UserRepository userRepository;
 
     public SignUpResDto createUser(SignUpReqDto signUpReqDto) {
-
+        boolean isUserExists = userRepository.findByEmail(signUpReqDto.getEmail()).isPresent();
+        if (isUserExists) {
+            return new SignUpResDto(200,"회원가입 실패");
+        }
         String encPassword = bCryptPasswordEncoder.encode(signUpReqDto.getPassword());
         signUpReqDto.setPassword(encPassword);
         userRepository.save(signUpReqDto.toEntity());
