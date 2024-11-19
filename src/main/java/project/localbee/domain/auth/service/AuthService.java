@@ -26,7 +26,7 @@ public class AuthService {
     }
 
     public CheckResDto checkUser(CheckReqDto checkReqDto) {
-        boolean isUserExists = userRepository.findByUsername(checkReqDto.getEmail()).isPresent();
+        boolean isUserExists = userRepository.findByEmail(checkReqDto.getEmail()).isPresent();
         if (isUserExists) {
             return new CheckResDto(200,"중복 있음");
         }
