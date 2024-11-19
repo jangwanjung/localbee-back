@@ -17,6 +17,7 @@ public class SignUpReqDto {
     private String password;
     private String username;
     private String profileImage;
+    private String phoneNumber;
 
     public User toEntity(){
 
@@ -24,6 +25,7 @@ public class SignUpReqDto {
                 .email(email)
                 .password(password)
                 .username(username)
+                .phone_number(phoneNumber)
                 .profile_image("default")
                 .role(RoleType.ADMIN)
                 .build();
