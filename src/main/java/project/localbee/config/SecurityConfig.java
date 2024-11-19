@@ -16,7 +16,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import project.localbee.util.Script;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,8 +34,9 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/").authenticated() // 인증된 사용자만 접근 가능
-                         .requestMatchers("/admin/**").hasRole("ADMIN") // ROLE_ADMIN 권한 필요
+                        .requestMatchers("/api/**","/auth/loginForm").permitAll()
+                        .requestMatchers("/user").authenticated() // 인증된 사용자만 접근 가능
+                        .requestMatchers("/admin").hasRole("ADMIN") // ROLE_ADMIN 권한 필요
                         .anyRequest().permitAll()
                 )
                 .formLogin(formLogin -> formLogin
