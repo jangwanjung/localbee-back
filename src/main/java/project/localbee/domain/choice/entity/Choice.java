@@ -1,4 +1,4 @@
-package project.localbee.domain.option.entity;
+package project.localbee.domain.choice.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Builder
 @Data
-public class Option {
+public class Choice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class Option {
     private Booking booking;
 
     @Enumerated(EnumType.STRING)
-    private OptionType type;
+    private ChoiceType type;
 
     @CreationTimestamp
     private Timestamp created_at;

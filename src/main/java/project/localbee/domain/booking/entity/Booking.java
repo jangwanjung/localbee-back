@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import project.localbee.domain.option.entity.Option;
+import project.localbee.domain.choice.entity.Choice;
 import project.localbee.domain.travel.entity.Travel;
 import project.localbee.domain.user.entity.User;
 
@@ -25,7 +25,7 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String Time;
+    private String time;
 
     private String request;
 
@@ -38,9 +38,9 @@ public class Booking {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"booking"})
-    private List<Option> options;
+    private List<Choice> choices;
 
     @ManyToOne
     @JoinColumn(name = "travel_id")
