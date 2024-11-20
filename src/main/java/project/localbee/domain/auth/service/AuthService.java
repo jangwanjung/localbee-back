@@ -19,20 +19,20 @@ public class AuthService {
     public SignUpResDto createUser(SignUpReqDto signUpReqDto) {
         boolean isUserExists = userRepository.findByEmail(signUpReqDto.getEmail()).isPresent();
         if (isUserExists) {
-            return new SignUpResDto(200,"회원가입 실패");
+            return new SignUpResDto("회원가입 실패");
         }
         String encPassword = bCryptPasswordEncoder.encode(signUpReqDto.getPassword());
         signUpReqDto.setPassword(encPassword);
         userRepository.save(signUpReqDto.toEntity());
         System.out.println(signUpReqDto);
-        return new SignUpResDto(200,"회원가입 완료");
+        return new SignUpResDto("회원가입 완료");
     }
 
     public CheckResDto checkUser(CheckReqDto checkReqDto) {
         boolean isUserExists = userRepository.findByEmail(checkReqDto.getEmail()).isPresent();
         if (isUserExists) {
-            return new CheckResDto(200,"중복 있음");
+            return new CheckResDto("중복 있음");
         }
-        return new CheckResDto(200,"중복 없음");
+        return new CheckResDto("중복 없음");
     }
 }

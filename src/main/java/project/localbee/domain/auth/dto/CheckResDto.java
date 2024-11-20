@@ -5,11 +5,9 @@ import lombok.Getter;
 @Getter
 public class CheckResDto {
 
-    private int code;
     private String message;
 
-    public CheckResDto(int code, String message) {
-        this.code = code;
+    public CheckResDto(String message) {
         this.message = message;
     }
 }

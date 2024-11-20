@@ -25,7 +25,7 @@ public class UserService {
         String phoneNumber = (String) profile[1];
         String email = (String) profile[2];
         String profileImage = (String) profile[3];
-        return new UserProfileResDto(200,username,phoneNumber,email,profileImage);
+        return new UserProfileResDto(username,phoneNumber,email,profileImage);
     }
 
 }
