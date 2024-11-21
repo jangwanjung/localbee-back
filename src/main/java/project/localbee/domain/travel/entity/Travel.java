@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import project.localbee.domain.choice.entity.Booking_choice;
+import project.localbee.domain.choice.entity.Travel_choice;
 import project.localbee.domain.review.entity.Review;
 import project.localbee.domain.image.entity.Image;
 import project.localbee.domain.schedule.entity.Schedule;
@@ -47,10 +49,12 @@ public class Travel {
     @JsonIgnoreProperties({"travel"})
     private List<Image> images;
 
+    @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"travel"})
+    private List<Travel_choice> choices;
+
+
     @CreationTimestamp
     private Timestamp created_at;
-
-
-
 
 }

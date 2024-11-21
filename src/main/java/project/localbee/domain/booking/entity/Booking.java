@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import project.localbee.domain.choice.entity.Choice;
+import project.localbee.domain.choice.entity.Booking_choice;
 import project.localbee.domain.travel.entity.Travel;
 import project.localbee.domain.user.entity.User;
 
@@ -40,7 +40,7 @@ public class Booking {
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"booking"})
-    private List<Choice> choices;
+    private List<Booking_choice> choices;
 
     @ManyToOne
     @JoinColumn(name = "travel_id")
