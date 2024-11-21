@@ -19,13 +19,6 @@ public class UserService {
     private final UserRepository userRepository;
 
     public UserProfileResDto userProfileSearch(Long id){
-        List<Object[]> userProfileData = userRepository.findUserProfileById(id);
-        Object[] profile = userProfileData.get(0);
-        String username = (String) profile[0];
-        String phoneNumber = (String) profile[1];
-        String email = (String) profile[2];
-        String profileImage = (String) profile[3];
-        return new UserProfileResDto(username,phoneNumber,email,profileImage);
+        return userRepository.findUserProfileById(id);
     }
-
 }
