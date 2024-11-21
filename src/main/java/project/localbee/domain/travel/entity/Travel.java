@@ -51,4 +51,6 @@ public class Travel {
     private Timestamp created_at;
 
 
+
+
 }
