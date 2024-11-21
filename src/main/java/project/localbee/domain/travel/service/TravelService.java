@@ -25,4 +25,8 @@ public class TravelService {
     public Travel travelDetailSearch (Long id) {
         return travelRepository.findById(id).orElse(null);
     }
+
+    public Long travelPriceSearch (Long id) {
+        return travelRepository.findById(id).get().getPrice();
+    }
 }

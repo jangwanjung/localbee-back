@@ -21,4 +21,5 @@ public class UserService {
     public UserProfileResDto userProfileSearch(Long id){
         return userRepository.findUserProfileById(id);
     }
+
 }
