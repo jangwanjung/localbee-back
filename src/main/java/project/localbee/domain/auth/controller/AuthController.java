@@ -7,10 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import project.localbee.domain.MessageResDto;
 import project.localbee.domain.auth.dto.CheckReqDto;
-import project.localbee.domain.auth.dto.CheckResDto;
 import project.localbee.domain.auth.dto.SignUpReqDto;
-import project.localbee.domain.auth.dto.SignUpResDto;
+
 import project.localbee.domain.auth.service.AuthService;
 import project.localbee.domain.user.service.UserService;
 
@@ -21,11 +21,11 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/api/auth/signup")
-    public SignUpResDto signUp(SignUpReqDto signUpReqDto) {
+    public MessageResDto signUp(SignUpReqDto signUpReqDto) {
         return authService.createUser(signUpReqDto);
     }
     @PostMapping("/api/auth/signup/check")
-    public CheckResDto check(CheckReqDto checkReqDto) {
+    public MessageResDto check(CheckReqDto checkReqDto) {
         System.out.println(checkReqDto);
         return authService.checkUser(checkReqDto);
     }

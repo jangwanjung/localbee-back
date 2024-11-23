@@ -45,9 +45,9 @@ public class Travel {
     @JsonIgnoreProperties({"travel"})
     private List<Review> reviews;
 
-    @OneToMany(mappedBy = "travel")
-    @JsonIgnoreProperties({"travel"})
-    private List<Image> images;
+        @OneToMany(mappedBy = "travel")
+        @JsonIgnoreProperties({"travel"})
+        private List<Image> images;
 
     @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"travel"})
