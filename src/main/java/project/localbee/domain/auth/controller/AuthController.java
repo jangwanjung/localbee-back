@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import project.localbee.domain.MessageResDto;
-import project.localbee.domain.auth.dto.CheckReqDto;
 import project.localbee.domain.auth.dto.SignUpReqDto;
 
 import project.localbee.domain.auth.service.AuthService;

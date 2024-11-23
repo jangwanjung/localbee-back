@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import project.localbee.domain.MessageResDto;
-import project.localbee.domain.auth.dto.CheckReqDto;
 import project.localbee.domain.auth.dto.SignUpReqDto;
 
 import project.localbee.domain.user.entity.User;
