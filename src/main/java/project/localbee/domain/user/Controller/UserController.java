@@ -20,7 +20,6 @@ public class UserController {
 
     @GetMapping("/user")
     public UserProfileResDto userProfile( @LoginUserAnnotation LoginUser loginUser) {
-        System.out.println(loginUser.getId());
         return userService.userProfileSearch(loginUser.getId());
     }
 }

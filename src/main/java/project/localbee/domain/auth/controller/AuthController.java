@@ -4,16 +4,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.localbee.domain.MessageResDto;
 import project.localbee.domain.auth.dto.CheckReqDto;
 import project.localbee.domain.auth.dto.SignUpReqDto;
 
 import project.localbee.domain.auth.service.AuthService;
 import project.localbee.domain.user.service.UserService;
+
+import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
@@ -27,8 +26,8 @@ public class AuthController {
         return authService.createUser(signUpReqDto);
     }
     @PostMapping("/user/check")
-    public MessageResDto check(CheckReqDto checkReqDto) {
-        System.out.println(checkReqDto);
-        return authService.checkUser(checkReqDto);
+    public MessageResDto check(@RequestBody Map<String, String> email) {
+
+        return authService.checkUser(email.get("email"));
     }
 }

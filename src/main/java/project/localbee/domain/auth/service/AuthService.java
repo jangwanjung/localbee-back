@@ -28,8 +28,8 @@ public class AuthService {
         return new MessageResDto("회원가입 완료");
     }
 
-    public MessageResDto checkUser(CheckReqDto checkReqDto) {
-        boolean isUserExists = userRepository.findByEmail(checkReqDto.getEmail()).isPresent();
+    public MessageResDto checkUser(String email) {
+        boolean isUserExists = userRepository.findByEmail(email).isPresent();
         if (isUserExists) {
             return new MessageResDto("중복 있음");
         }
