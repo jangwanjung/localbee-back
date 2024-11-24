@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.localbee.config.auth.LoginUserAnnotation;
 import project.localbee.config.dto.LoginUser;
+import project.localbee.domain.user.dto.BookingListResDto;
 import project.localbee.domain.user.dto.UserProfileResDto;
 import project.localbee.domain.user.entity.User;
 import project.localbee.domain.user.service.UserService;
@@ -21,5 +22,15 @@ public class UserController {
     @GetMapping("/user")
     public UserProfileResDto userProfile( @LoginUserAnnotation LoginUser loginUser) {
         return userService.userProfileSearch(loginUser.getId());
+    }
+
+    @GetMapping("/user/booking/planned-travels")
+    public BookingListResDto bookingPlanedList( @LoginUserAnnotation LoginUser loginUser) {
+        return userService.bookingPlannedListSearch(loginUser.getId());
+    }
+
+    @GetMapping("/user/booking/completed-travels")
+    public BookingListResDto bookingCompletedList( @LoginUserAnnotation LoginUser loginUser) {
+        return userService.bookingCompletedListSearch(loginUser.getId());
     }
 }

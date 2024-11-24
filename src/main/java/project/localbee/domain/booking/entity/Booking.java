@@ -32,6 +32,8 @@ public class Booking {
 
     private Long price;
 
+    private int personnel;
+
     @Enumerated(EnumType.STRING)
     private ApprovalType approval_type;
 
