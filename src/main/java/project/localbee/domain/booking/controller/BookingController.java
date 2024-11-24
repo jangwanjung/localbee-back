@@ -3,10 +3,13 @@ package project.localbee.domain.booking.controller;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.RequestScope;
+import project.localbee.config.auth.LoginUserAnnotation;
+import project.localbee.config.dto.LoginUser;
+import project.localbee.domain.MessageResDto;
+import project.localbee.domain.booking.dto.BookingSubmitReqDto;
+import project.localbee.domain.booking.service.BookingService;
 import project.localbee.domain.travel.service.TravelService;
 
 import java.util.Map;
@@ -17,9 +20,17 @@ import java.util.Map;
 public class BookingController {
 
     private final TravelService travelService;
+    private final BookingService bookingService;
 
     @GetMapping("/booking/{travelId}")
-    public ResponseEntity<Map<String,Long>> bookingSubmit(@PathVariable("travelId") Long travelId) {
+    public ResponseEntity<Map<String,Long>> bookingPage(@PathVariable("travelId") Long travelId) {
         return ResponseEntity.ok(Map.of("price",travelService.travelPriceSearch(travelId)));
+    }
+
+    @PostMapping("/booking/{travelId}")
+    public MessageResDto bookingSubmit(@PathVariable("travelId") Long travelId
+            , @RequestBody BookingSubmitReqDto bookingSubmitReqDto, @LoginUserAnnotation LoginUser loginUser) {
+        System.out.println(bookingSubmitReqDto);
+        return bookingService.CreateBooking(travelId, bookingSubmitReqDto, loginUser);
     }
 }

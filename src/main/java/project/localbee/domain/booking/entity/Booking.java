@@ -12,6 +12,7 @@ import project.localbee.domain.travel.entity.Travel;
 import project.localbee.domain.user.entity.User;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String time;
+    private LocalDate time;
 
     private String request;
 
