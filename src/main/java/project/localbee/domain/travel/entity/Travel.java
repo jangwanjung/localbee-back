@@ -12,6 +12,7 @@ import project.localbee.domain.choice.entity.Travel_choice;
 import project.localbee.domain.review.entity.Review;
 import project.localbee.domain.image.entity.Image;
 import project.localbee.domain.schedule.entity.Schedule;
+import project.localbee.domain.user.entity.User;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -45,9 +46,13 @@ public class Travel {
     @JsonIgnoreProperties({"travel"})
     private List<Review> reviews;
 
-        @OneToMany(mappedBy = "travel")
-        @JsonIgnoreProperties({"travel"})
-        private List<Image> images;
+    @OneToMany(mappedBy = "travel")
+    @JsonIgnoreProperties({"travel"})
+    private List<Image> images;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"travel"})

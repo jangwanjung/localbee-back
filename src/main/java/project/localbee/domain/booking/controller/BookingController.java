@@ -9,6 +9,7 @@ import project.localbee.config.auth.LoginUserAnnotation;
 import project.localbee.config.dto.LoginUser;
 import project.localbee.domain.MessageResDto;
 import project.localbee.domain.booking.dto.BookingSubmitReqDto;
+import project.localbee.domain.booking.dto.ReceiptResDto;
 import project.localbee.domain.booking.service.BookingService;
 import project.localbee.domain.travel.service.TravelService;
 
@@ -30,7 +31,12 @@ public class BookingController {
     @PostMapping("/booking/{travelId}")
     public MessageResDto bookingSubmit(@PathVariable("travelId") Long travelId
             , @RequestBody BookingSubmitReqDto bookingSubmitReqDto, @LoginUserAnnotation LoginUser loginUser) {
-        System.out.println(bookingSubmitReqDto);
         return bookingService.CreateBooking(travelId, bookingSubmitReqDto, loginUser);
+    }
+
+    @GetMapping("/booking/receipt/{id}")
+    public ReceiptResDto receiptPage(@PathVariable("id") Long id, @LoginUserAnnotation LoginUser loginUser) {
+
+        return bookingService.receiptSearch(id, loginUser);
     }
 }
