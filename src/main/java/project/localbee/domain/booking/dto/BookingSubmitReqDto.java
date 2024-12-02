@@ -22,13 +22,14 @@ public class BookingSubmitReqDto {
 
     private LocalDate time;
     private String request;
-    private int participants;
+    private int personnel;
     private List<ChoiceType> choices;
 
     public Booking toEntity(){
         Booking booking = Booking.builder()
                 .time(time)
                 .request(request)
+                .personnel(personnel)
                 .build();
 
         List<Booking_choice> bookingChoices = choices.stream()

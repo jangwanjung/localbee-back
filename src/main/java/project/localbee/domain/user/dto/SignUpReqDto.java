@@ -1,4 +1,4 @@
-package project.localbee.domain.auth.dto;
+package project.localbee.domain.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
