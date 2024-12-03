@@ -29,3 +29,7 @@ spring:
 
   main:
     allow-bean-definition-overriding: true
+
+sms:
+  api_key: NCSAH5BHQMLKKS9Q
+  api_secret_key: WH0HXHPNCFJK5AUE2RL4MCQUMDHDDIOZ

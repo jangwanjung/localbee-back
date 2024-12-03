@@ -78,4 +78,8 @@ public class UserService {
         user.setPassword(newPassword);
         return new MessageResDto("비밀번호 변경 완료");
     }
+
+    public BookingListResDto bookingApplicationListSearch(Long id){
+        return new BookingListResDto(bookingRepository.findApplicationBookings(id));
+    }
 }

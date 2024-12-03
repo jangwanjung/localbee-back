@@ -60,5 +60,10 @@ public class UserController {
         return userService.verifyPhoneCheck(loginUser.getPhoneNumber(), verificationCode.get("verificationCode"));
     }
 
+    @GetMapping("/booking/applications-travels")
+    public BookingListResDto bookingApplicationList(@LoginUserAnnotation LoginUser loginUser) {
+        return userService.bookingApplicationListSearch(loginUser.getId());
+    }
+
 
 }

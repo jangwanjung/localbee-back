@@ -35,7 +35,7 @@ public class BookingService {
         Booking booking = bookingSubmitReqDto.toEntity();
         booking.setTravel(travel);;
         booking.setPrice(travel.getPrice()*bookingSubmitReqDto.getPersonnel());
-        booking.setApproval_type(ApprovalType.APPROVED);
+        booking.setApproval_type(ApprovalType.PENDING);
         booking.setUser(loginUser.getUser());
         bookingRepository.save(booking);
 
